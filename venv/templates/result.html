@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Результат</h1>
+<div class="col-md6 border rounded">
+    <h1>Вы набрали {{points}} из {{max}}.</h1>
+
+    <div>
+        <a href="/school" class="btn btn-success">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

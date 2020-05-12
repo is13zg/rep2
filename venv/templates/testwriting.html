@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ test.title }}</h1>
+    <div class="col-md6 border rounded">
+    <h4>{{ tasks.title }}</h4>
+        <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+    <input type="radio" name="task" value="1">{{ tasks.ans1 }}<br>
+    <input type="radio" name="task" value="2">{{ tasks.ans2 }}<br>
+    <input type="radio" name="task" value="3">{{ tasks.ans3 }}<br>
+    <input type="radio" name="task" value="4">{{ tasks.ans4 }}<br>
+          <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Тесты</h1>
+{% if current_user.is_authenticated and current_user.occupation == 'да'%}
+        <a href="test" class="btn btn-secondary">Добавить тест</a>
+    {% endif %}
+{% if current_user.is_authenticated %}
+    {% for item in test %}
+    <div class="col-md6 border rounded">
+        <h1>Тест №{{item.id}}</h1>
+
+        <h2>{{item.title}}</h2>
+
+        <div>
+            Автор - {{item.user.name}}, Предмет - {{item.subject}}
+        </div>
+        <div>
+            Количество вопросов - {{item.count_of_questions}}
+        </div>
+        <a href="/test/{{ item.id }}/0" class="btn btn-warning">Пройти тест</a>
+        {% if current_user.is_authenticated and current_user == item.user %}
+        <div>
+            <a href="/test_delete/{{ item.id }}" class="btn btn-danger">Удалить</a>
+        </div>
+        <div>
+            <a href="/result_test/{{ item.id }}" class="btn btn-success">Посмотреть результаты</a>
+        </div>
+        {% endif %}
+</div>
+{% endfor %}
+{% else%}
+<h2>Зарегестрируйтесь или войдите, чтобы проходить тесты</h2>
+{% endif%}
+{% endblock %}

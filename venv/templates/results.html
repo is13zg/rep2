@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Тест № {{test.id}}</h1>
+<h2>{{test.title}}</h2>
+{% for item in ans%}
+<div class="col-md6 border rounded">
+
+    <table cellpadding="13">
+        <tr>
+            <th>Имя и класс</th>
+            <th>Набранные баллы</th>
+            <th>Максимальное количество баллов</th>
+        </tr>
+        <tr>
+            <td>{{item.user}}</td>
+            <td>{{item.points}}</td>
+            <td>{{item.max_points}}</td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+<div>
+        <a href="/school" class="btn btn-success">Вернуться на главную</a>
+    </div>
+{% endblock %}
